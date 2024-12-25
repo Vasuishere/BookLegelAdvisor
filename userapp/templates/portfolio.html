@@ -55,11 +55,12 @@
                         <div class="col-12">
                             <ul id="portfolio-flters" style="list-style: none; padding: 0;">
                                 <li data-filter="*" class="filter-active" style="margin-bottom: 10px;">All</li>
+                                <script>console.log("{{ data }}")</script>
                                 {% for category in data %}
-                                <li data-filter=".{{ category|lower }}" 
-                                    class="{% if forloop.first %}filter-active{% endif %}" 
+                                <li data-filter=".{{ category.case_categories|lower }}" 
+                                    class="{% if forloop.first %} {% endif %}" 
                                     style="margin-bottom: 10px;">
-                                    {{ category }}
+                                    {{ category.case_categories }}
                                 </li>
                                 {% endfor %}
                             </ul>

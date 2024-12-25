@@ -27,7 +27,7 @@ def signup(request):
         p = request.POST['password']
         obj = user(name=n, email=e, number=nu, password=p)
         obj.save()
-        return redirect("/home")
+        return redirect("/login")
     return render(request, "signup.html")
 
 
@@ -36,7 +36,13 @@ def index(request):
     review_data = Client_Review.objects.all
     Blog_data = Blog.objects.all
     Types = Types_Law.objects.all
-    return render(request, "index.html",{"data":data,"review_data":review_data,"Blog":Blog_data,"Types_Law":Types})
+    context = {
+        "data":data,
+        "review_data":review_data,
+        "Blog":Blog_data,
+        "Types_Law":Types
+    }
+    return render(request, "index.html",context)
 
 
 def about(request):
