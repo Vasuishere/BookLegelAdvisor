@@ -100,5 +100,6 @@ def logout(request):
     return redirect("/")
 
 def law_readmore(request,id):
-    data = Practice_Area.objects.filter(pid = id).all()
-    return render(request,"law_readmore.html",{"data":data})
+    data = Practice_Area.objects.filter(Practice_Area_pid = id).all()
+    data1 = Types_Law.objects.filter(id = id).all()
+    return render(request,"law_readmore.html",{"data":data,"data1":data1})

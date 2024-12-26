@@ -36,10 +36,11 @@ class Types_Law(models.Model):
     detail = models.CharField(max_length=550)
 
 class Practice_Area(models.Model):
-    det = models.CharField(max_length=200)
-    law_title = models.CharField(max_length=50)
-    pid = models.ForeignKey(Types_Law,models.CASCADE)
-
+    Practice_Area_det = models.CharField(max_length=1000)
+    Practice_Area_law_title = models.CharField(max_length=50)
+    Practice_Area_pid = models.ForeignKey(Types_Law,models.CASCADE)
+    Practice_Area_image = models.ImageField(upload_to='image/')
+    
 
 class case_categories(models.Model):
     case_categories = models.CharField(max_length=50)

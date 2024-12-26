@@ -34,18 +34,22 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-md-6">
+                            {% for i in data %}
                             <div class="about-img">
-                                <img src="{% static 'userapp/img/about.jpg' %}" alt="About Us">
+                                <img src="{{ i.Practice_Area_image.url }}" alt="About Us">
                             </div>
+                            {% endfor %}
                         </div>
                         <div class="col-lg-7 col-md-6">
+                            {% for i in data1 %}
                             <div class="section-header">
-                                <h2>Learn About Us</h2>
+                                <h2>{{ i.law_tittle }}</h2>
                             </div>
+                            {% endfor %}
                             {% for i in data %}
                             <div class="about-text">
-                                <h1>{{ i.law_title }}</h1>
-                                <p>{{ i.det }}</p>
+                                <h1>{{ i.Practice_Area_law_title }}</h1>
+                                <p>{{ i.Practice_Area_det }}</p>
                             </div>
                             {% endfor %}
                         </div>
