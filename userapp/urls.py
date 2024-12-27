@@ -26,6 +26,7 @@ urlpatterns = [
     path('signup', views.signup),
     path('about', views.about),
     path('blog', views.blog),
+    path('blog-more/<int:id>', views.blog_more),
     path('contact1', views.contact1),
     path('portfolio', views.portfolio),
     path('service', views.service),

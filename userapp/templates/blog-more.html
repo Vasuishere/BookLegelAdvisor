@@ -9,14 +9,14 @@
         <meta content="Law Firm Website Template" name="description">
 
         <!-- Favicon -->
-        <link href="{% static 'userapp/img/favicon.ico'%}" rel="icon">
+        <link href="img/favicon.ico" rel="icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600;1,700;1,800&family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
         
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css'%}" rel="stylesheet">
         <link href="{% static 'userapp/lib/animate/animate.min.css'%}" rel="stylesheet">
         <link href="{% static 'userapp/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
 
@@ -27,50 +27,44 @@
     <body>
         <div class="wrapper">
             {% include 'header.html' %}
-
             <!-- Page Header Start -->
             <div class="page-header">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <h2>Our Blog</h2>
+                            <h2>Single Page</h2>
                         </div>
                         <div class="col-12">
                             <a href="">Home</a>
-                            <a href="">Our Blog</a>
+                            <a href="">Single Page</a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Page Header End -->
 
-                <!-- Blog Start -->
-            <div class="blog">
+
+            <!-- Single Page Start -->
+            <div class="single">
                 <div class="container">
                     <div class="section-header">
-                        <h2>Latest From Blog</h2>
+                        <h2>Blogs</h2>
                     </div>
-                    <div class="owl-carousel blog-carousel">
-                        {% for i in Blog %}
-                        <div class="blog-item">
-                            <img src={{i.image.url}} alt="Blog">
-                            <h3>{{i.tittle}}</h3>
-                            <div class="meta">
-                                <i class="fa fa-list-alt"></i>
-                                <a href="">Real Estate Law</a>
-                                <i class="fa fa-calendar-alt"></i>
-                                <p>01-Jan-2045</p>
-                            </div>
+                    <div class="row">
+                        {% for i in data %}
+                        <div class="col-12">
+                            <img class="img-fluid rounded" src="{{i.image.url}}" alt="Image">
+                            <h2>{{i.tittle}}</h2>
                             <p>
-                                {{i.discription}}
+                                {{i.des}}
                             </p>
-                            <a class="btn" href="blog-more/{{i.id}}">Read More <i class="fa fa-angle-right"></i></a>
                         </div>
                         {% endfor %}
                     </div>
                 </div>
             </div>
-            <!-- Blog End -->
+            <!-- Single Page End -->
+
 
             <!-- Newsletter Start -->
             <div class="newsletter">
@@ -93,11 +87,11 @@
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="{% static 'userapp/lib/easing/easing.min.js'%}"></script>
-        <script src="{% static 'userapp/lib/owlcarousel/owl.carousel.min.js'%}"></script>
-        <script src="{% static 'userapp/lib/isotope/isotope.pkgd.min.js'%}"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
 
         <!-- Template Javascript -->
-        <script src="{% static 'userapp/js/main.js'%}"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

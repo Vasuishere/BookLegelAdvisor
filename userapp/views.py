@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from pyexpat.errors import messages
 
-from userapp.models import user,contact,Attorneys,Client_Review,Blog,Types_Law,Practice_Area,case_categories,case_studies
+from .models import user,contact,Attorneys,Client_Review,Blog,Types_Law,Practice_Area,case_categories,case_studies
 
 
 # Create your views here.
@@ -103,3 +103,7 @@ def law_readmore(request,id):
     data = Practice_Area.objects.filter(Practice_Area_pid = id).all()
     data1 = Types_Law.objects.filter(id = id).all()
     return render(request,"law_readmore.html",{"data":data,"data1":data1})
+
+def blog_more(request,id):
+    data = Blog.objects.filter(id = id).all()
+    return render(request,"blog-more.html",{"data":data})

@@ -28,7 +28,7 @@ class Client_Review(models.Model):
 class Blog(models.Model):
     image = models.FileField(upload_to='image/')
     tittle = models.CharField(max_length=100)
-    des = models.CharField(max_length=200)
+    des = models.CharField(max_length=1500)
 
 class Types_Law(models.Model):
     law_tittle = models.CharField(max_length=50)
