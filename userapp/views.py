@@ -16,7 +16,7 @@ def login(request):
             request.session['islogin'] = True
             request.session['email'] = e
             return redirect("/")
-    return render(request, "login.html")
+    return render(request, "userapp/login.html")
 
 
 def signup(request):
@@ -28,7 +28,7 @@ def signup(request):
         obj = user(name=n, email=e, number=nu, password=p)
         obj.save()
         return redirect("/login")
-    return render(request, "signup.html")
+    return render(request, "userapp/signup.html")
 
 
 def index(request):
@@ -42,17 +42,17 @@ def index(request):
         "Blog":Blog_data,
         "Types_Law":Types
     }
-    return render(request, "index.html",context)
+    return render(request, "userapp/index.html",context)
 
 
 def about(request):
     data = Attorneys.objects.all
-    return render(request, "about.html",{"data":data})
+    return render(request, "userapp/about.html",{"data":data})
 
 
 def blog(request):
     Blog_data = Blog.objects.all
-    return render(request, "blog.html",{"Blog":Blog_data})
+    return render(request, "userapp/blog.html",{"Blog":Blog_data})
 
 
 def contact1(request):
@@ -64,35 +64,35 @@ def contact1(request):
         obj = contact(name=n,email=e,subject=s,message=m)
         obj.save()
         return redirect("/contact1")
-    return render(request, "contact.html")
+    return render(request, "userapp/contact.html")
 
 
 def portfolio(request):
     data = case_categories.objects.all
     data1 = case_studies.objects.all
-    return render(request, "portfolio.html",{"data":data,"data1":data1})
+    return render(request, "userapp/portfolio.html",{"data":data,"data1":data1})
 
 
 def service(request):
     Types = Types_Law.objects.all
-    return render(request, "service.html",{"Types_Law":Types})
+    return render(request, "userapp/service.html",{"Types_Law":Types})
 
 
 def single(request):
-    return render(request, "single.html")
+    return render(request, "userapp/single.html")
 
 
 def team(request):
     data = Attorneys.objects.all
-    return render(request, "team.html",{"data":data})
+    return render(request, "userapp/team.html",{"data":data})
 
 
 def appointment(request):
-    return render(request, "appointment.html")
+    return render(request, "userapp/appointment.html")
 
 
 def header(request):
-    return render(request, "header.html")
+    return render(request, "userapp/header.html")
 
 
 def logout(request):
@@ -102,8 +102,9 @@ def logout(request):
 def law_readmore(request,id):
     data = Practice_Area.objects.filter(Practice_Area_pid = id).all()
     data1 = Types_Law.objects.filter(id = id).all()
-    return render(request,"law_readmore.html",{"data":data,"data1":data1})
+    return render(request,"userapp/law_readmore.html",{"data":data,"data1":data1})
 
 def blog_more(request,id):
     data = Blog.objects.filter(id = id).all()
-    return render(request,"blog-more.html",{"data":data})
+    return render(request,"userapp/blog-more.html",{"data":data})
+
