@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Attorneys,Client_Review,Blog,Types_Law,Practice_Area,case_categories,case_studies,contact
+from .models import Attorneys,Client_Review,Blog,Types_Law,Practice_Area,case_categories,case_studies,contact,appointment
+
 
 # Register your models here.
 
@@ -11,3 +12,4 @@ admin.site.register(Practice_Area)
 admin.site.register(case_studies)
 admin.site.register(case_categories)
 admin.site.register(contact)
+admin.site.register(appointment)

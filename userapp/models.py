@@ -67,3 +67,14 @@ class case_studies(models.Model):
     case_studies_image = models.ImageField(upload_to='image/')
     def __str__(self):
         return self.case_studies_tittle
+
+class appointment(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phoneno = models.CharField(max_length=50)
+    service = models.CharField(max_length=50)
+    gender = models.CharField(max_length=50)
+    message = models.TextField(max_length=2000)
+    up_doc1 = models.FileField(upload_to='image/', blank=True, null=True)
+    def __str__(self):
+        return self.name

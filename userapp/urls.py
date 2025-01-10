@@ -32,7 +32,7 @@ urlpatterns = [
     path('service', views.service),
     path('single', views.single),
     path('team', views.team),
-    path('appointment', views.appointment),
+    path('appointment', views.appo_intment),
     path('login', views.login),
     path('header', views.header),
     path('logout', views.logout),

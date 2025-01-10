@@ -21,5 +21,15 @@ from adminapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('', views.login),
+    path('index', views.index, name='index'),
+    path('logout', views.logout),
+    path('contact', views.Show_contact),
+    path('appointment', views.Show_Appointment),
+    path('blog', views.blog),
+    path('attorneys', views.attorneys),
+    path('case_categories', views.case_catogory),
+    path('demo', views.demo),
+    path('types_Law', views.types_Law),
+    path('add-team', views.add_team),
 ]

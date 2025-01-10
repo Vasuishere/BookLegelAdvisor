@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from pyexpat.errors import messages
 
-from .models import user,contact,Attorneys,Client_Review,Blog,Types_Law,Practice_Area,case_categories,case_studies
+from .models import user,contact,Attorneys,Client_Review,Blog,Types_Law,Practice_Area,case_categories,case_studies,appointment
 
 
 # Create your views here.
@@ -86,11 +86,6 @@ def team(request):
     data = Attorneys.objects.all
     return render(request, "userapp/team.html",{"data":data})
 
-
-def appointment(request):
-    return render(request, "userapp/appointment.html")
-
-
 def header(request):
     return render(request, "userapp/header.html")
 
@@ -108,3 +103,29 @@ def blog_more(request,id):
     data = Blog.objects.filter(id = id).all()
     return render(request,"userapp/blog-more.html",{"data":data})
 
+def appo_intment(request):
+    if request.POST:
+        n = request.POST['name']
+        e = request.POST['email']
+        pn = request.POST['phoneno']
+        s = request.POST['service']
+        g = request.POST['gender']
+        m = request.POST['message']
+
+        # Use get() to handle optional file uploads
+        uc1 = request.FILES.get('up_doc1')
+
+
+        # Create and save the appointment object
+        obj = appointment(
+            name=n,
+            email=e,
+            phoneno=pn,
+            service=s,
+            gender=g,
+            message=m,
+            up_doc1=uc1,
+        )
+        obj.save()
+        return redirect("index")
+    return render(request,"userapp/appointment.html")
